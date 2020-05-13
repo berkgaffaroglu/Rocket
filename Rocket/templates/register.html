@@ -5,6 +5,8 @@
 <form method="POST" action="">
     {{ form.hidden_tag() }}
     <div class="form-group">
+        <fieldset>
+            <legend>SIGN UP</legend>
         {{ form.username.label(class="form-label form-label-lg")  }}
 
         {% if form.username.errors %}
@@ -82,7 +84,7 @@
 
 
 
-
+</fieldset>
 </form>
 <small>Do you have an account already?<a href="{{url_for('login')}}"> Log In</a></small>
 

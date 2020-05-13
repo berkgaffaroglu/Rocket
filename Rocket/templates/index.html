@@ -1,4 +1,20 @@
  {% extends 'base.html' %} 
  {% block content %} 
- Index 
+
+{% if current_user.is_authenticated %}
+
+<div class="card">
+    <img class="card-img-top" alt="">
+    <div class="card-body">
+        <h4 class="card-title">Post 1</h4>
+        <p class="card-text">Content 1</p>
+    </div>
+</div>
+
+{% else %}
+<div>nope</div>
+
+{% endif %}
+
+
  {% endblock %} 
