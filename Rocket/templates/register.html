@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
 <form method="POST" action="">
     {{ form.hidden_tag() }}
     <div class="form-group">
@@ -87,7 +86,6 @@
 </fieldset>
 </form>
 <small>Do you have an account already?<a href="{{url_for('login')}}"> Log In</a></small>
-
 
 
 {% endblock %}
