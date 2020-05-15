@@ -5,10 +5,11 @@
  <meta charset="utf-8"> 
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
  <!-- Bootstrap CSS --> 
+
  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}>
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
- <title>Rocket - {% if title %}{{ title }}{% endif %}</title> 
+ <title>Rocket {% if title %}-{{ title }}{% endif %}</title> 
  </head> 
  <body> 
   
@@ -36,6 +37,14 @@
   </nav>
 
   <div role="main" class="container">
+    {% if current_user.username == 'admin'%}
+    <div class="card mb-4">
+      <div class="card-body">
+        Admin Mode: <strong style="color:green">On</strong>
+      </div>
+    </div>
+
+    {% endif %}
 
         {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}
@@ -48,6 +57,8 @@
         {% endwith %}
         {% block content %}{% endblock %}  
 </div>  
+
+
 
 
 
